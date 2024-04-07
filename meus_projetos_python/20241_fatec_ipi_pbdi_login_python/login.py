@@ -1,15 +1,12 @@
 # $Env:path += ';C:\Progra~1\PostgreSQL\14\bin'
 import psycopg
 print(psycopg)
-
-
 class Usuario:
     def __init__(self, login, senha):
         self.login = login
         self.senha = senha
+        
 # metodo: verifica usuario na base no Postgre
-
-
 def existe(usuario):
     # Conecta BD
     with psycopg.connect(
@@ -27,8 +24,7 @@ def existe(usuario):
             # obter resultado
             result = cursor.fetchone()
             return result != None
-
-
+            
 def insert(usuario):
     # Conecta BD
     with psycopg.connect(
@@ -48,10 +44,9 @@ def insert(usuario):
             # return True if result != None else False
             return result != None
 
-# def teste():
+#def teste():
 # print(existe(Usuario('admin', 'admin')))
 # teste()
-
 
 def menu():
     texto = '0-Sair\n1-Login\n2-Logout\n3-Criar Usuário'
@@ -76,6 +71,4 @@ def menu():
         else:
             print('digite a opção válida\n')
         op == int(input(texto))
-
-
 menu()
