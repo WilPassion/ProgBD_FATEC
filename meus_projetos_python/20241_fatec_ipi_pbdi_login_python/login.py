@@ -31,3 +31,24 @@ def existe(usuario):
 # def teste():
 # print(existe(Usuario('admin', 'admin')))
 # teste()
+
+
+def menu():
+    texto = '0-Sair\n1-Login\n2-Logout\n'
+    usuario = None
+    op = int(input(texto))
+    while op != 0:
+        if op == 1:
+            login = input('Login:')
+            senha = input('Senha:')
+            usuario = Usuario(login, senha)
+            print('Usuario OK!' if existe(usuario) else 'Usuario NOK')
+        elif op == 2:
+            usuario = None
+            print('Logout realizado com sucesso')
+        else:
+            print('digite a opção válida')
+        op == int(input(texto))
+
+
+menu()
